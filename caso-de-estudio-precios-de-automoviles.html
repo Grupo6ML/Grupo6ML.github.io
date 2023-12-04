@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="spanish">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="/images/coding.png" type="image/x-icon">
+  <link rel="icon" href="/images/coding.png" type="image/x-icon">
+
+
+
+
+
+ 
+
+<meta name="author" content="Grupo 6" />
+<meta name="description" content="Modelo de regresión lineal en la predicción de precios de automóviles. 1. Comprensión del negocio Geely Auto, una empresa automotriz china, se propone ingresar al competitivo mercado estadounidense. Con este objetivo, Geely ha contratado los servicios de una empresa consultora automotriz. El objetivo principal es obtener conocimientos sobre las complejidades …" />
+<meta name="keywords" content="RapidMiner, Python, Linear Regression">
+
+
+  <meta property="og:site_name" content="Portafolio Machine Learning"/>
+  <meta property="og:title" content="Caso de Estudio Precios de Automóviles"/>
+  <meta property="og:description" content="Modelo de regresión lineal en la predicción de precios de automóviles. 1. Comprensión del negocio Geely Auto, una empresa automotriz china, se propone ingresar al competitivo mercado estadounidense. Con este objetivo, Geely ha contratado los servicios de una empresa consultora automotriz. El objetivo principal es obtener conocimientos sobre las complejidades …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="/caso-de-estudio-precios-de-automoviles.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2023-12-02 22:00:00-03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="/author/grupo-6.html">
+  <meta property="article:section" content="Caso de Estudio"/>
+  <meta property="article:tag" content="RapidMiner"/>
+  <meta property="article:tag" content="Python"/>
+  <meta property="article:tag" content="Linear Regression"/>
+  <meta property="og:image" content="/images/6.png">
+
+  <title>Portafolio Machine Learning &ndash; Caso de Estudio Precios de Automóviles</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="/">
+      <img src="/images/6.png" alt="Grupo 6" title="Grupo 6">
+    </a>
+
+    <h1>
+      <a href="/">Grupo 6</a>
+    </h1>
+
+
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/Grupo6ML"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/néstor-martínez-759122232/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/agustín-lorenzo-80003520a/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/esteban-casalas/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/tomás-silva-pastorini-9a40ab184/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/nicolás-puig/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="/">Home</a>
+
+  <a href="/archives">Historial</a>
+  <a href="/categories">Categorías</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="caso-de-estudio-precios-de-automoviles">Caso de Estudio Precios de Automóviles</h1>
+    <p>
+      Posted on sáb. 02 Diciembre 2023 in <a href="/category/caso-de-estudio.html">Caso de Estudio</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Modelo de regresión lineal en la predicción de precios de automóviles.</h1>
+<h2>1. Comprensión del negocio</h2>
+<p>Geely Auto, una empresa automotriz china, se propone ingresar al competitivo mercado estadounidense. Con este objetivo, Geely ha contratado los servicios de una empresa consultora automotriz. El objetivo principal es obtener conocimientos sobre las complejidades del mercado automotriz estadounidense y comprender los factores que influyen en los precios de los vehículos. Esto es importante, ya que el precio de los vehículos en el mercado estadounidense puede diferir significativamente de los del mercado chino.</p>
+<p>Para lograr esto, Geely Auto tiene como objetivo responder a dos preguntas clave:</p>
+<p><strong>Identificación de Variables Significativas:</strong>
+La empresa busca identificar qué variables desempeñan un papel significativo en la predicción del precio de los vehículos en el mercado estadounidense.</p>
+<p><strong>Modelado de la Dinámica de Precios:</strong>
+Geely Auto desea desarrollar un modelo predictivo que pueda estimar de manera efectiva el precio de los vehículos basándose en las variables identificadas. Este modelo servirá como una herramienta para que la gerencia evalúe cómo varían los precios en relación con diferentes características.
+La firma consultora contratada por Geely Auto ha recopilado un conjunto de datos exhaustivo. Este conjunto de datos abarca diversos tipos de vehículos disponibles en el mercado estadounidense, proporcionando una fuente rica de información para el análisis.</p>
+<p>El objetivo empresarial final es crear un modelo de regresión sólido capaz de predecir los precios de los vehículos en función de variables independientes relevantes. Este modelo permitirá a la gerencia de Geely Auto tomar decisiones informadas sobre el diseño de vehículos, estrategias comerciales y otros factores influyentes. Al comprender la dinámica de precios en el nuevo mercado, Geely Auto tiene como objetivo posicionarse de manera competitiva y navegar con éxito por el complejo panorama automotriz estadounidense.</p>
+<h2>2. Comprensión de los datos</h2>
+<p>El dataset en cuestión fue extraído de <a href="https://www.kaggle.com/datasets/hellbuoy/car-price-prediction/data">Kaggle</a> y cuenta con un total de 25 variables, 10 categóricas y 15 numéricas.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;CarPrice_Assignment.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</code></pre></div>
+
+<p>El dataset cuenta con 26 atributos: 10 variables categóricas, 15 numericas, y una variable objetivo numerica:</p>
+<ul>
+<li><strong>price</strong>: Precio del vehículo en dólares. Es la variable objetivo a predecir.</li>
+<li><strong>car_ID</strong>: Un identificador único asignado a cada vehículo en el conjunto de datos.</li>
+<li><strong>CarName</strong>: Representa el nombre de la marca y modelo del vehículo, como "alfa-romero giulia", "alfa-romero stelvio", entre otros.</li>
+<li><strong>fueltype</strong>: El tipo de combustible que utiliza el vehículo, ya sea "gas" (gasolina) o "diesel" (diésel).</li>
+<li><strong>aspiration</strong>: Describe el tipo de sistema de aspiración del motor, que puede ser "std" (estándar) o "turbo" (turboalimentado).</li>
+<li><strong>doornumber</strong>: Cantidad de puertas en el vehículo, pudiendo ser "two" (dos puertas) o "four" (cuatro puertas).</li>
+<li><strong>carbody</strong>: Tipo de carrocería, como "convertible" (descapotable), "hatchback" (hatchback), "sedan" (sedán), "wagon" (familiar) o "hardtop" (techo duro).
+drivewheel: Sistema de tracción, pudiendo ser "rwd" (tracción trasera), "fwd" (tracción delantera) o "4wd" (tracción en las cuatro ruedas).</li>
+<li><strong>enginelocation</strong>: Ubicación del motor en el vehículo, ya sea "front" (frontal) o "rear" (trasera).</li>
+<li><strong>enginetype</strong>: Describe el tipo de motor utilizado, como "ohcv" (válvulas a la cabeza en V), "ohc" (válvulas a la cabeza), "l" (motor en línea), "rotor" (motor rotativo), entre otros.</li>
+<li><strong>cylindernumber</strong>: Número de cilindros en el motor, como "four" (cuatro), "six" (seis), "five" (cinco), "three" (tres), "twelve" (doce), "two" (dos), "eight" (ocho).</li>
+<li><strong>fuelsystem</strong>: Sistema de suministro de combustible del motor, incluyendo opciones como "mpfi" (inyección multipunto de combustible), "2bbl" (dos cuerpos de mariposa), "mfi" (inyección de combustible monopunto), "1bbl" (un cuerpo de mariposa), "spfi" (inyección de combustible de un solo punto), "4bbl" (cuatro cuerpos de mariposa), "idi" (inyección directa de combustible), "spdi" (inyección de combustible secuencial multipunto).</li>
+<li><strong>symboling</strong>: Un índice que representa el nivel de riesgo del vehículo según las agencias de seguros. </li>
+<li><strong>wheelbase</strong>: La distancia entre los ejes delantero y trasero del vehículo. Determina la estabilidad y el espacio interior del vehículo.</li>
+<li><strong>carlength</strong>: La longitud total del vehículo, desde el extremo frontal hasta el extremo trasero. </li>
+<li><strong>carwidth</strong>: El ancho del vehículo.</li>
+<li><strong>carheight</strong>: La altura total del vehículo.</li>
+<li><strong>curbweight</strong>: El peso total del vehículo equipado completamente, con combustible y líquidos, pero sin pasajeros ni carga adicional.</li>
+<li><strong>enginesize</strong>: El tamaño del motor, medido en centímetros cúbicos (cc) o litros.</li>
+<li><strong>boreratio</strong>: La relación entre el diámetro del cilindro y la longitud de la carrera del pistón en el motor. </li>
+<li><strong>stroke</strong>: La longitud de la carrera del pistón en el motor.</li>
+<li><strong>compressionratio</strong>: Índice de compresión del motor.</li>
+<li><strong>horsepower</strong>: La potencia del motor medida en caballos de fuerza.</li>
+<li><strong>peakrpm</strong>: El número máximo de revoluciones por minuto que puede alcanzar el motor. Indica la velocidad máxima de rotación del motor.</li>
+<li><strong>citympg</strong>: El rendimiento del combustible en millas por galón (mpg) que el vehículo puede lograr en condiciones de conducción urbana.</li>
+<li><strong>highwaympg</strong>: Consumo de combustible en millas por galón (mpg) que el vehículo puede lograr en condiciones de conducción en carretera.</li>
+</ul>
+<p>Una vez que se tiene entendimiento del significado de cada variable, se procede a observar las características de cada una. Se puede observar un claro desbalance en algunas de estas variables, como por ejemplo “enginetype”, “cilindernumber”, “fuelsystem”, entre otras.</p>
+<p><img alt="Pelican" src="/images/CarPrices/image2.png"></p>
+<p>Otro aspecto importante en este caso, es la presencia de outliers. En variables como “enginesize”, “compressionratio”, “horsepower”, “peakrpm”, “citympg” y “highwaympg”.
+Dichas variables presentan algunos valores particularmente altos que parecen ser atípicos y que son dignos de tomar en consideración cuando se realicen preparaciones de los datos.</p>
+<p><img alt="Pelican" src="/images/CarPrices/image6.png"></p>
+<h2>3. Preparación de los datos</h2>
+<p>El dataset está bien estructurado, no cuenta con ningún dato faltante, pero existen variables categóricas que deben ser debidamente transformadas a números para que puedan ser utilizadas por el algoritmo de regresión lineal.
+Las variables categóricas, y sus posibles valores son las siguientes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cat_features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cat_features</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">feature</span><span class="p">:</span> <span class="n">feature</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</code></pre></div>
+
+<p><img alt="Pelican" src="/images/CarPrices/image1.png"></p>
+<p>Analizando más en profundidad CarName, se puede apreciar que cada valor está compuesto por la marca del vehículo y el modelo. Por sí sola, esta variable no tiene gran utilidad al modelo ya que tiene muchos valores distintos, pero es posible extraer la marca, la cual puede ser de mayor utilidad.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;brand&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">CarName</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CarName&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brands:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">brand</span><span class="o">.</span><span class="n">unique</span><span class="p">()))</span>
+</code></pre></div>
+
+<p><img alt="Pelican" src="/images/CarPrices/image8.png"></p>
+<p>Se pueden apreciar errores gramaticales en los valores anteriores, y además, una marca está escrita de distintas formas. Por ejemplo: “vokswagen”, “volkswagen” y “vw”. Se aplica la siguiente transformación para unificar los valores:</p>
+<ul>
+<li>Nissan, nissan → nissan</li>
+<li>vokswagen, volkswagen, vw → volkswagen</li>
+<li>toyota, toyota → toyota</li>
+<li>porsche, porcshce → porsche</li>
+<li>maxda → mazda</li>
+<li>alfa-romero → alfa-romeo</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Nissan&quot;</span><span class="p">,</span> <span class="s2">&quot;nissan&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;vokswagen&quot;</span><span class="p">,</span> <span class="s2">&quot;volkswagen&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;vw&quot;</span><span class="p">,</span> <span class="s2">&quot;volkswagen&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;toyouta&quot;</span><span class="p">,</span> <span class="s2">&quot;toyota&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;maxda&quot;</span><span class="p">,</span> <span class="s2">&quot;mazda&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;porcshce&quot;</span><span class="p">,</span> <span class="s2">&quot;porsche&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;alfa-romero&quot;</span><span class="p">,</span> <span class="s2">&quot;alfa-romeo&quot;</span><span class="p">))</span>
+</code></pre></div>
+
+<p>Una vez separado y corregido la marca del vehículo en una nueva variable, se elimina la variable CarName. El resto de variables categóricas tienen un formato correcto. </p>
+<h3>Feature encoding</h3>
+<p><img alt="Pelican" src="/images/CarPrices/image3.png"></p>
+<p>La estrategia de encoding que mejor resultado otorgó fue aplicar one-hot encoding para todas las variables con más de 2 valores posibles. Esto es debido a que los valores no siguen un orden en particular. Por otro lado, las variables con solo dos valores posibles fueron transformadas a una variable binaria.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Label Encoding</span>
+<span class="n">label_encoding</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aspiration&#39;</span><span class="p">,</span><span class="s1">&#39;enginelocation&#39;</span><span class="p">,</span><span class="s1">&#39;doornumber&#39;</span><span class="p">,</span><span class="s1">&#39;fueltype&#39;</span><span class="p">,</span><span class="s1">&#39;drivewheel&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">label_encoding</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">label_encoding</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># One-hot encoding</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Como resultado, el dataset pasó de tener 25 variables, a tener 68.</p>
+<h3>Feature Selection</h3>
+<p>Primero que nada, se comenzará por remover la variable “car_ID” ya que posee ninguna relación con la variable objetivo.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="err">“</span><span class="n">car_ID</span><span class="err">”</span><span class="p">])</span>
+</code></pre></div>
+
+<p>A continuación, utilizaremos un enfoque simple pero útil para “Feature Selection”, tomando las mejores “Features” en función de su correlación con la variable objetivo. Podemos obtener las 10 mejores y peores características con el siguiente código:</p>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">price</span>
+<span class="n">X_by_corr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">corrwith</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+<p>El resultado fue el siguiente:</p>
+<h4>Top 10 Features</h4>
+<ol>
+<li>enginesize: 0.874</li>
+<li>curbweight: 0.835</li>
+<li>horsepower: 0.808</li>
+<li>carwidth: 0.759</li>
+<li>cylindernumber_four: 0.698</li>
+<li>highwaympg: 0.698</li>
+<li>citympg: 0.686</li>
+<li>carlength: 0.683</li>
+<li>drivewheel: 0.578</li>
+<li>wheelbase: 0.578</li>
+</ol>
+<h4>Peores 10 Features</h4>
+<ol>
+<li>uelsystem_mfi: 0.003</li>
+<li>cylindernumber_two: 0.005</li>
+<li>enginetype_rotor: 0.005</li>
+<li>enginetype_ohcf: 0.016</li>
+<li>fuelsystem_4bbl: 0.017</li>
+<li>fuelsystem_spfi: 0.020</li>
+<li>brand_mercury: 0.028</li>
+<li>doornumber: 0.032</li>
+<li>brand_alfa-romeo: 0.034</li>
+<li>enginetype_l: 0.042</li>
+</ol>
+<p>Esta correlación puede visualizarse mejor en gráficos del tipo “Scatter Plot”. En principio, con los siguientes gráficos, se puede concluir que:
+El “curbweight” y “enginesize” del vehículo afectan de forma directa a su precio.
+Los autos con cuatro cilindros suelen tener menor precio.
+Cuanto mayor sea la métrica de MPG(Millas Por Galón) menor es el precio del vehículo.</p>
+<p><img alt="Pelican" src="images/CarPrices/image4.png"></p>
+<h3>Hallando la cantidad de Features óptima</h3>
+<p>Para identificar las mejores features, se aplicará un mecanismo de “cross-validation” con 10 pliegues, usando las N variables más correlacionadas como entrenamiento para el modelo de regresión lineal. Empezando solo por la mejor feature e incorporando sucesivamente la siguiente mejor feature a la lista hasta que se hayan incluido todas.
+Se utilizará R2 y la raíz del error cuadrado medio (RMSE) para evaluar la performance del modelo.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">KFold</span>
+
+<span class="k">def</span> <span class="nf">apply_cross_validation</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">kfolds</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+  <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">kfolds</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+  <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="s1">&#39;neg_root_mean_squared_error&#39;</span><span class="p">]</span>
+  <span class="n">results</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kf</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scores</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_r2&#39;</span><span class="p">]),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_neg_root_mean_squared_error&#39;</span><span class="p">])</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;rmse&quot;</span><span class="p">:[],</span> <span class="s2">&quot;r2&quot;</span><span class="p">:[]}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_by_corr</span><span class="p">)):</span>
+  <span class="n">new_X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X_by_corr</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="n">i</span><span class="p">]]</span>
+  <span class="n">r2</span><span class="p">,</span> <span class="n">rmse</span> <span class="o">=</span> <span class="n">apply_cross_validation</span><span class="p">(</span><span class="n">new_X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+  <span class="n">results</span><span class="p">[</span><span class="s2">&quot;i&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">results</span><span class="p">[</span><span class="s2">&quot;rmse&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span>
+  <span class="n">results</span><span class="p">[</span><span class="s2">&quot;r2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="Pelican" src="images/CarPrices/image7.png"></p>
+<p>Como resultado, el número óptimo de features fue de las 48 mejores, con un R2 de 0.918 y un RMSE de 2118.16 . Este resultado se consideró aceptable, por lo que se procedió a filtrar el conjunto de datos de entrenamiento.</p>
+<div class="highlight"><pre><span></span><code><span class="n">best</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="o">.</span><span class="n">rmse</span> <span class="o">==</span> <span class="n">results</span><span class="o">.</span><span class="n">rmse</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X_by_corr</span><span class="o">.</span><span class="n">index</span><span class="p">[:</span><span class="n">best</span><span class="o">.</span><span class="n">i</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]]]</span>
+</code></pre></div>
+
+<h2>4. Modelado</h2>
+<p>Como se describió anteriormente, las variables tienden a tener una relación lineal con el precio del vehículo. Por lo tanto, es una buena opción seleccionar el algoritmo de regresión lineal para modelar el problema.</p>
+<p>Un 80% del dataset (164 casos) es destinado al entrenamiento del modelo, mientras que el restante 20% (41 casos) son destinados a testing.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div>
+
+<h2>5.  Evaluación</h2>
+<p>Finalmente se entrena el modelo, con las variables óptimas encontradas, y se valida contra el dataset de test para evaluar su performance:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_squared_error</span>
+<span class="c1"># Train</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Test</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test result: RMSE=</span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R2_Score=</span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Se obtuvo un R2 = 0.920 y RMSE=2515.9, los cuales son buenos resultados y significa que el modelo tuvo una buena performance. Se puede apreciar mejor los resultados con el siguiente gráfico de comparación de resultados predecidos con los actuales.</p>
+<p><img alt="Pelican" src="images/CarPrices/image5.png"></p>
+<h2>6. Conclusión</h2>
+<p>En base a las relaciones lineales de los atributos con el precio del vehículo, y los atributos siendo numéricos, aplicamos el algoritmo que mejor se acopla a nuestro problema, que es Regresión Lineal, y logramos generar un modelo capaz de predecir con buena precisión los precios de los autos.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/rapidminer.html">RapidMiner</a>
+      <a href="/tag/python.html">Python</a>
+      <a href="/tag/linear-regression.html">Linear Regression</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Portafolio Machine Learning ",
+  "url" : "",
+  "image": "/images/6.png",
+  "description": ""
+}
+</script>
+</body>
+</html>

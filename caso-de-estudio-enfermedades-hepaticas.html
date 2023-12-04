@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="spanish">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="/theme/font-awesome/css/solid.css">
+
+
+  <link rel="shortcut icon" href="/images/coding.png" type="image/x-icon">
+  <link rel="icon" href="/images/coding.png" type="image/x-icon">
+
+
+
+
+
+ 
+
+<meta name="author" content="Grupo 6" />
+<meta name="description" content="Introducción Para la resolución de este problema se seguirán los pasos del proceso CRISP-DM: Comprensión del negocio Comprensión de los datos Preparación de los datos Modelado Evaluación Despliegue (N/A) Contexto Análisis del problema planteado El incremento en la mortalidad debido a la cirrosis …" />
+<meta name="keywords" content="RapidMiner, k-NN, Logistic Regression, Random Forest, Feature Selection, Bagging">
+
+
+  <meta property="og:site_name" content="Portafolio Machine Learning"/>
+  <meta property="og:title" content="Caso de Estudio Enfermedades Hepáticas"/>
+  <meta property="og:description" content="Introducción Para la resolución de este problema se seguirán los pasos del proceso CRISP-DM: Comprensión del negocio Comprensión de los datos Preparación de los datos Modelado Evaluación Despliegue (N/A) Contexto Análisis del problema planteado El incremento en la mortalidad debido a la cirrosis …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="/caso-de-estudio-enfermedades-hepaticas.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2023-12-02 23:00:00-03:00"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="/author/grupo-6.html">
+  <meta property="article:section" content="Caso de Estudio"/>
+  <meta property="article:tag" content="RapidMiner"/>
+  <meta property="article:tag" content="k-NN"/>
+  <meta property="article:tag" content="Logistic Regression"/>
+  <meta property="article:tag" content="Random Forest"/>
+  <meta property="article:tag" content="Feature Selection"/>
+  <meta property="article:tag" content="Bagging"/>
+  <meta property="og:image" content="/images/6.png">
+
+  <title>Portafolio Machine Learning &ndash; Caso de Estudio Enfermedades Hepáticas</title>
+
+
+</head>
+<body class="light-theme">
+
+<aside>
+  <div>
+    <a href="/">
+      <img src="/images/6.png" alt="Grupo 6" title="Grupo 6">
+    </a>
+
+    <h1>
+      <a href="/">Grupo 6</a>
+    </h1>
+
+
+
+
+    <ul class="social">
+      <li>
+        <a class="sc-github"
+           href="https://github.com/Grupo6ML"
+           target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/néstor-martínez-759122232/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/agustín-lorenzo-80003520a/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/esteban-casalas/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/tomás-silva-pastorini-9a40ab184/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-linkedin"
+           href="https://www.linkedin.com/in/nicolás-puig/"
+           target="_blank">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="/">Home</a>
+
+  <a href="/archives">Historial</a>
+  <a href="/categories">Categorías</a>
+
+
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="caso-de-estudio-enfermedades-hepaticas">Caso de Estudio Enfermedades Hepáticas</h1>
+    <p>
+      Posted on sáb. 02 Diciembre 2023 in <a href="/category/caso-de-estudio.html">Caso de Estudio</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h1>Introducción</h1>
+<p>Para la resolución de este problema se seguirán los pasos del proceso CRISP-DM:</p>
+<ol>
+<li>Comprensión del negocio</li>
+<li>Comprensión de los datos</li>
+<li>Preparación de los datos</li>
+<li>Modelado</li>
+<li>Evaluación</li>
+<li>Despliegue (N/A)</li>
+</ol>
+<h1>Contexto</h1>
+<h2>Análisis del problema planteado</h2>
+<p>El incremento en la mortalidad debido a la cirrosis hepática está directamente vinculado al aumento en el consumo de alcohol, la presencia crónica de hepatitis y la enfermedad hepática relacionada con la obesidad. A pesar de su impacto letal, las enfermedades hepáticas no afectan a todas las subpoblaciones por igual. La detección temprana juega un papel crucial en los resultados para los pacientes, pero parece existir un sesgo hacia las pacientes femeninas en cuanto al diagnóstico precoz de estas patologías. Este análisis se basa en un conjunto de datos que comprende 584 registros de pacientes recolectados en el noreste de Andhra Pradesh, India. La tarea principal es predecir si un paciente padece enfermedad hepática a partir de información sobre diversos marcadores bioquímicos, incluyendo albúmina y otras enzimas esenciales para el metabolismo.</p>
+<p><a href="https://www.paho.org/es/temas/hepatitis">(Enlace) Hepatitis</a></p>
+<h2>Comprensión de los datos</h2>
+<p>Este grupo de datos en particular contiene información de 416 pacientes con enfermedad hepática y 167 pacientes sin ella, recopilados en el noreste de Andhra Pradesh, India.</p>
+<p>Los datos del conjunto consisten en información médica, como datos demográficos (edad y género) y mediciones de laboratorio relacionadas con la salud del paciente. Además, hay una variable objetivo que clasifica a los pacientes en dos grupos. De las variables, 9 son numéricas, 1 es binaria y la variable objetivo también es binaria.</p>
+<h3>Atributos tomados:</h3>
+<ul>
+<li>Edad: Representa la edad del paciente y se mide en años, siendo un número entero. Para pacientes mayores de 89 años, se registra como "90 años".</li>
+<li>Gender: Indica el sexo del paciente y es una variable binaria, típicamente masculino o femenino.</li>
+<li><strong>TB (Bilirrubina Total):</strong> Indica el nivel total de bilirrubina en el paciente, una variable continua.</li>
+<li><strong>DB (Bilirrubina Directa):</strong> Refleja el nivel de bilirrubina directa en el paciente, otra variable continua.</li>
+<li><strong>Alkphos (Fosfatasa Alcalina):</strong> Expresa la cantidad de fosfatasa alcalina en el paciente, un número entero.</li>
+<li><strong>Sgpt (Alamina Aminotransferasa):</strong> Representa la cantidad de alanina aminotransferasa en el paciente, también es una variable numérica sin unidad específica.</li>
+<li><strong>Sgot (Aspartato Aminotransferasa):</strong> Indica la cantidad de aspartato aminotransferasa en el paciente, una variable numérica sin unidad específica.</li>
+<li><strong>TP (Proteínas Totales):</strong> Muestra la cantidad total de proteínas en el paciente, una variable continua.</li>
+<li><strong>ALB (Albúmina):</strong> Indica la cantidad de albúmina en el paciente, variable continua.</li>
+<li><strong>A/G Ratio (Relación Albúmina/Globulina):</strong> Representa la relación entre albúmina y globulina en el paciente, una variable continua.</li>
+<li><strong>Selector:</strong> Es la variable objetivo y es binaria. "2" significa ausencia de enfermedad hepática y "1" indica la presencia de la enfermedad.</li>
+</ul>
+<h2><strong>Preparación de los datos</strong></h2>
+<p><strong>Missing Values</strong></p>
+<p>La única variable que presenta missing values es la variable numérica “A/G Ratio”.
+Únicamente tiene 4 valores faltantes por lo que simplemente se imputarán los valores
+con la media de la columna para mantener la distribución y no afectar la varianza.</p>
+<p>Otra alternativa más eficiente pero compleja es predecir cual sería un valor de
+reemplazo probable en base a los demás atributos utilizando un algoritmo de regresión
+para atributos numéricos y clasificación para categóricos.</p>
+<p><strong>Outliers</strong></p>
+<p>Algunos atributos numéricos tienen valores que aparentan ser outliers ya que se
+encuentran separados de la distribución de la variable. Los atributos son los siguientes,
+y se filtraran de la siguiente manera:</p>
+<ul>
+<li>tb (&lt;= 30)</li>
+<li>sgpt (&lt;= 500)</li>
+<li>sgot (&lt;= 650)</li>
+<li>
+<p>ag_ratio (&lt;= 2)</p>
+<p>Por ejemplo la variable ag_ratio:</p>
+</li>
+</ul>
+<p><img alt="Captura de pantalla 2023-11-28 a la(s) 14.13.56.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-11-28_a_la(s)_14.13.56.png"></p>
+<ol>
+<li><strong>Encoding</strong></li>
+</ol>
+<p>Únicamente se tiene una variable categórica binomial (gender), debe ser convertida a
+numérica para que todos los algoritmos de clasificación a utilizar la puedan soportar.</p>
+<ul>
+<li>Male=0</li>
+<li>Female=1</li>
+</ul>
+<p><strong>Normalización</strong></p>
+<p>Se aplica estandarización de los datos numéricos para que todos tengan la misma escala,
+y varianza.</p>
+<p><strong>Transformaciones</strong></p>
+<p>Una posible mejora es aplicar una transformación a la variables que no sigan una
+distribución normal (tb, db, alkphos, sgpt, sgot), porque muchos algoritmos tienen una
+mejor performance cuando la siguen. Por ejemplo, se puede aplicar el logaritmo, raíz
+cuadrada, o la transformación box-cox entre otras. No se aplica por falta de tiempo.</p>
+<p><strong>¿cómo es la distribución de la enfermedad en función de otros atributos
+relevantes?</strong></p>
+<p>Las personas que no tienen la enfermedad presentan un sgot menor a 300:</p>
+<p><img alt="Captura de pantalla 2023-11-28 a la(s) 14.14.26.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-11-28_a_la(s)_14.14.26.png"></p>
+<p>Los hombres (gender=0) tienden a padecer más la enfermedad.</p>
+<p><img alt="Captura de pantalla 2023-11-28 a la(s) 14.14.41.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-11-28_a_la(s)_14.14.41.png"></p>
+<p><strong>Describe las características de los atributos (físicas, estadísticas, correlaciones,
+etc.).</strong></p>
+<p>Los atributos age, tp, alb y ag_ratio tiene una distribucion normal, con escalas diferentes
+por lo que los valores deben ser normalizados.</p>
+<p>Los demás atributos numéricos no tienen distribuciones normales, por lo que sería una
+mejora aplicar transformaciones para acercarla.</p>
+<p>Ejemplo de distribución no normal de la variable “tb”:</p>
+<p><img alt="Captura de pantalla 2023-11-28 a la(s) 14.15.04.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-11-28_a_la(s)_14.15.04.png"></p>
+<p><strong>¿Cuál es el verdadero significado de cada atributo?</strong></p>
+<p>El verdadero significado de cada atributo fue explicado más arriba en el documento.</p>
+<p><strong>¿cuáles son los procedimientos y dificultades para obtener datos correctos de
+estos atributos?</strong></p>
+<p>Muchos de estos atributos fueron tomados utilizando instrumentos de medición, como
+por ejemplo tests, los cuales tienen un error de medición asociado, por lo que los datos
+no son 100% certeros.</p>
+<h2><strong>Modelado</strong></h2>
+<p>Se utilizará los siguientes modelos: Regresión Logistica, Random Forest y KNN. Debido a que estos son los más adecuados para clasificación binomial. Además, presentan buena performance cuando los atributos tienen distribución normal, como lo hacen una parte de los atributos.</p>
+<p><strong>Regresión Logistica</strong></p>
+<p>El primer modelo a considerar es Regresión Logística porque es adecuado para analizar relaciones lineales entre variables y es ampliamente utilizado en problemas de clasificación. En este caso de estudio, se elige debido a su capacidad para predecir probabilidades y clasificar datos en diferentes categorías. Además, la Regresión Logística proporciona resultados interpretables, lo que facilita la comprensión de cómo cada variable influye en las predicciones. </p>
+<p><strong>Random Forest</strong></p>
+<p>Se decide utilizar Random Forest porque ofrece una capacidad optima para manejar datasets complejos con múltiples atributos. En este caso de estudio, la robustez inherente de Random Forest contra el overfitting y su habilidad para trabajar con datos de alta dimensionalidad. Además, su capacidad para evaluar la importancia relativa de las características permite comprender mejor la contribución de cada atributo en las predicciones. Esta técnica, al emplear múltiples árboles de decisión, reduce la variabilidad y mejora la capacidad de generalización del modelo, aspectos cruciales en este contexto de análisis de enfermedad hepática donde se busca una predicción precisa y sólida.</p>
+<p><strong>KNN (K Nearest Neighbors)</strong></p>
+<p>KNN es idóneo para abordar un escenario donde la naturaleza y distribución de los datos son complejas o no lineales. Al aplicar KNN, se prioriza la flexibilidad del modelo, lo que resulta beneficioso cuando se trabaja con conjuntos de datos cuya estructura no es fácilmente definida por modelos paramétricos. Además, KNN ofrece una interpretación intuitiva al clasificar datos según la similitud con sus vecinos más cercanos, lo que facilita la comprensión y explicación de los resultados obtenidos. No obstante, se debe considerar la posibilidad de que KNN pueda ser sensible a la presencia de ruido o valores atípicos, y su rendimiento puede verse afectado en conjuntos de datos grandes o con alta dimensionalidad. En este contexto específico, la elección de KNN está respaldada por su capacidad para adaptarse a la complejidad de los datos y su relativa facilidad de interpretación, siempre y cuando se tenga en cuenta su sensibilidad a ciertos desafíos en la práctica.</p>
+<p><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*Cross Validation</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>*</p>
+<p>Se utiliza cross validation para evaluar la performance del modelo correctamente y que
+no haga overfitting al dataset de training.  Al dividir el conjunto de datos en partes (folds), se entrena el modelo en varias combinaciones de entrenamiento y validación, lo que permite evaluar su desempeño en diferentes conjuntos de datos. Esto ayuda a garantizar que el modelo no esté aprendiendo patrones específicos de los datos de entrenamiento que no se apliquen bien a nuevos datos, lo que podría llevar a predicciones inexactas en el mundo real.</p>
+<p><strong>KNN con Bagging</strong></p>
+<p>Si bien KNN es sensible a la distribución de los datos y puede ser afectado por valores atípicos o ruido, aplicar bagging puede reducir la variabilidad al entrenar múltiples instancias de KNN con diferentes subconjuntos de datos. Al promediar las predicciones de estos múltiples modelos KNN, se reduce la posibilidad de overfitting y se mejora la capacidad de generalización del modelo. Esta estrategia ayuda a mitigar la sensibilidad a la distribución de los datos, aumentando la robustez y precisión del modelo KNN al considerar una diversidad de perspectivas en la toma de decisiones.</p>
+<p><strong>Feature Selection</strong></p>
+<p>Una mejora aplicada feature selection utilizando el algoritmo evolutivo para seleccionar las features de mayor importancia, reduciendo la posibilidad de overfitting y mejorando los resultados.
+Al utilizar un algoritmo evolutivo con una población de 8 y un máximo de 50 generaciones, se busca encontrar el subconjunto óptimo de características que tenga un impacto significativo en el rendimiento del modelo. Este enfoque de selección de características ayuda a eliminar el ruido o la redundancia en los datos, lo que permite al modelo concentrarse en las características más relevantes para hacer predicciones precisas</p>
+<h2><strong>Evaluación</strong></h2>
+<p>Para evaluar este caso de estudio, se tienen las siguientes métricas, las cuales son fundamentales para comprender el rendimiento del modelo en diferentes aspectos.</p>
+<ul>
+<li><strong>Accuracy (Precisión):</strong> Representa la proporción de predicciones correctas realizadas por el modelo sobre el total de predicciones. Se calcula como el número de predicciones correctas dividido entre el número total de predicciones.</li>
+<li><strong>Precision (Precisión):</strong> Indica la proporción de predicciones positivas correctas sobre el total de predicciones positivas realizadas por el modelo. Se calcula como el número de verdaderos positivos dividido entre la suma de verdaderos positivos y falsos positivos.</li>
+<li><strong>Specificity (Especificidad):</strong> Es la proporción de verdaderos negativos sobre el total de negativos reales en los datos. Se calcula como la proporción entre los verdaderos negativos y la suma de verdaderos negativos y falsos positivos. Representa la capacidad del modelo para identificar correctamente las muestras negativas.</li>
+<li><strong>Recall (Sensibilidad):</strong> Es la proporción de verdaderos positivos sobre el total de positivos reales en los datos. Se calcula como la proporción entre verdaderos positivos y la suma de verdaderos positivos y falsos negativos. Mide la capacidad del modelo para identificar correctamente las muestras positivas.</li>
+</ul>
+<p>En el contexto de enfermedades hepáticas, las métricas clave a tener en cuenta serían la sensibilidad (recall) y la especificidad. Recall es crucial porque nos indica qué tan bien el modelo puede identificar correctamente a las personas que realmente tienen la enfermedad hepática. Una sensibilidad alta significa que el modelo es capaz de detectar la mayoría de los casos positivos, lo cual es fundamental en el diagnóstico temprano y la intervención oportuna.</p>
+<p>Por otro lado, la especificidad también es importante, ya que indica qué tan bien el modelo puede descartar correctamente a las personas que no tienen la enfermedad hepática. Una alta especificidad es esencial para evitar falsas alarmas o diagnósticos incorrectos, asegurando que las personas sanas no sean identificadas erróneamente como enfermas.</p>
+<p><strong>KNN</strong></p>
+<p>Los resultados muestran que el modelo KNN logró una precisión general del 72.93%, con una sensibilidad (recall) del 45.85% y una especificidad del 83.90%. Esto indica que el modelo tiene una capacidad aceptable para identificar correctamente a las personas sanas (alta especificidad), pero su capacidad para detectar los casos positivos de enfermedad hepática (sensibilidad) es relativamente baja en comparación con la especificidad. En el contexto de enfermedades hepáticas, donde la detección temprana es crucial, el modelo KNN podría ser útil para descartar correctamente a los casos negativos, pero puede perder algunos casos positivos, lo que limita su eficacia en la identificación de pacientes con la enfermedad.</p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.04.58.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.04.58.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.05.37.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.05.37.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.20.05.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.20.05.png"></p>
+<p><strong>Random Forest</strong></p>
+<p>Los resultados del modelo Random Forest muestran una precisión general del 70.20%, con una sensibilidad (recall) del 12.61% y una especificidad del 93.66%. Estos resultados indican que si bien el modelo tiene una alta capacidad para identificar correctamente a las personas sanas (alta especificidad), su capacidad para detectar los casos positivos de enfermedad hepática (sensibilidad) es muy baja. En el contexto de las enfermedades hepáticas, donde es crucial identificar correctamente los casos positivos, el modelo Random Forest muestra una deficiencia significativa al no poder capturar adecuadamente estos casos, lo que podría limitar su eficacia en el diagnóstico oportuno de la enfermedad.</p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.03.52.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.03.52.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.21.27.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.21.27.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.21.34.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.21.34.png"></p>
+<p><strong>Regresión Logistica</strong></p>
+<p>Los resultados de la Regresión Logística muestran una precisión general del 72.28%, con una sensibilidad (recall) del 24.63% y una especificidad del 91.71%. Estos resultados indican que el modelo tiene una capacidad razonable para identificar correctamente a las personas sanas (alta especificidad), pero su capacidad para detectar los casos positivos de enfermedad hepática (sensibilidad) sigue siendo relativamente baja en comparación con la especificidad. Aunque mejora respecto al modelo Random Forest en la detección de casos positivos, aún presenta dificultades para capturar adecuadamente estos casos, lo que puede limitar su eficacia en el diagnóstico preciso de la enfermedad hepática.</p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.00.08.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.00.08.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.06.17.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.06.17.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.21.49.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.21.49.png"></p>
+<p><strong>Bagging + KNN</strong></p>
+<p>Los resultados de Bagging + Regresión Logística muestran una precisión general del 67.59%. La sensibilidad (recall) es del 34.89%, con un área bajo la curva (AUC) de 0.68. El error de clasificación es del 32.41%, mientras que la precisión es del 42.13% y la medida F es del 37.70%. Estos resultados indican una mejora en la capacidad del modelo para detectar casos positivos en comparación con otros modelos previos, como la Regresión Logística y Random Forest. Aunque la precisión general es inferior en comparación con algunos modelos individuales, la sensibilidad mejorada sugiere una mejor capacidad para identificar casos positivos de enfermedad hepática. Sin embargo, aún existe margen para mejorar la precisión general del modelo.</p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.23.46.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.23.46.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.24.01.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.24.01.png"></p>
+<p><img alt="Captura de pantalla 2023-12-03 a la(s) 14.23.54.png" src="images/EnfermedadHep/Captura_de_pantalla_2023-12-03_a_la(s)_14.23.54.png"></p>
+<h3>Conclusión</h3>
+<p>Tras analizar los distintos modelos para la detección de enfermedades hepáticas, se observa que, si bien ninguno alcanza un rendimiento óptimo, el modelo que destaca es el de Regresión Logística. Aunque presenta una precisión general del 72.28%, su capacidad para identificar correctamente los casos positivos (sensibilidad) sigue siendo relativamente baja, al igual que otros modelos evaluados. En este sentido, el siguiente paso podría enfocarse en mejorar la capacidad de los modelos para identificar de manera más efectiva los casos de enfermedad hepática. Esto podría lograrse mediante la optimización de los hiperparámetros de los modelos, la selección más precisa de atributos relevantes o considerando ensembles más complejos que combinen múltiples modelos para mejorar la sensibilidad sin sacrificar la especificidad. Además, la incorporación de más datos o la mejora de la calidad de los mismos podría potenciar la capacidad predictiva de los modelos.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="/tag/rapidminer.html">RapidMiner</a>
+      <a href="/tag/k-nn.html">k-NN</a>
+      <a href="/tag/logistic-regression.html">Logistic Regression</a>
+      <a href="/tag/random-forest.html">Random Forest</a>
+      <a href="/tag/feature-selection.html">Feature Selection</a>
+      <a href="/tag/bagging.html">Bagging</a>
+    </p>
+  </div>
+
+
+
+
+
+
+</article>
+
+<footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " Portafolio Machine Learning ",
+  "url" : "",
+  "image": "/images/6.png",
+  "description": ""
+}
+</script>
+</body>
+</html>
